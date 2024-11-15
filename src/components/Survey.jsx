@@ -48,12 +48,14 @@ const Survey = () => {
 
   const handleClick = async (event) => {
     event.preventDefault();
-    const uniqures = {
+    const uniqueres = {
       ...responses,
 
-      sessionID: Date.now(),
+      sessionID: Date.now()
     };
-    setResponses(uniqures);
+    const dataToSave = { ...uniqueres, sessionID: uniqueres.sessionID, id: undefined };
+    console.log("res",dataToSave)
+    setResponses(dataToSave);
 
     const userConfirmed = window.confirm(
       "Are you sure you want to save your responses?"
